@@ -1,3 +1,13 @@
+## replace crosswalk with crosswalk-lite
+
+How to use?
+```
+cordova plugin add https://github.com/hellojinjie/cordova-plugin-crosswalk-webview.git
+cordova build android
+```
+
+# The origin README
+
 # cordova-plugin-crosswalk-webview
 
 Makes your Cordova application use the [Crosswalk WebView](https://crosswalk-project.org/)
