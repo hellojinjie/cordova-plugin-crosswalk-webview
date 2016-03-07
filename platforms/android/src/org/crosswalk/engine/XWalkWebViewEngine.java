@@ -89,7 +89,6 @@ public class XWalkWebViewEngine implements CordovaWebViewEngine {
 
                 initWebViewSettings();
                 exposeJsInterface(webView, bridge);
-                loadExtensions();
 
                 CordovaPlugin notifPlugin = new CordovaPlugin() {
                     @Override
@@ -206,24 +205,6 @@ public class XWalkWebViewEngine implements CordovaWebViewEngine {
     private static void exposeJsInterface(XWalkView webView, CordovaBridge bridge) {
         XWalkExposedJsApi exposedJsApi = new XWalkExposedJsApi(bridge);
         webView.addJavascriptInterface(exposedJsApi, "_cordovaNative");
-    }
-
-    private void loadExtensions() {
-        AssetManager assetManager = cordova.getActivity().getAssets();
-        String[] extList;
-        try {
-            Log.i(TAG, "Iterate assets/xwalk-extensions folder");
-            extList = assetManager.list(XWALK_EXTENSIONS_FOLDER);
-        } catch (IOException e) {
-            Log.w(TAG, "Failed to iterate assets/xwalk-extensions folder");
-            return;
-        }
-
-        for (String path : extList) {
-            // Load the extension.
-            Log.i(TAG, "Start to load extension: " + path);
-            webView.getExtensionManager().loadExtension(XWALK_EXTENSIONS_FOLDER + File.separator + path);
-        }
     }
 
     @Override
