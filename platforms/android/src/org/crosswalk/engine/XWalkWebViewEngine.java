@@ -92,12 +92,6 @@ public class XWalkWebViewEngine implements CordovaWebViewEngine {
 
                 CordovaPlugin notifPlugin = new CordovaPlugin() {
                     @Override
-                    public void onNewIntent(Intent intent) {
-                        Log.i(TAG, "notifPlugin route onNewIntent() to XWalkView: " + intent.toString());
-                        XWalkWebViewEngine.this.webView.onNewIntent(intent);
-                    }
-
-                    @Override
                     public Object onMessage(String id, Object data) {
                         if (id.equals("captureXWalkBitmap")) {
                             // Capture bitmap on UI thread.
