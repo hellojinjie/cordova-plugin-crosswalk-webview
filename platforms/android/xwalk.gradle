@@ -26,7 +26,7 @@ def BIT_64 = ":64bit@aar"
 
 repositories {
   maven {
-    url 'https://download.01.org/crosswalk/releases/crosswalk/android/maven2'
+    url 'https://download.01.org/crosswalk/releases/crosswalk-lite/android/maven2'
   }
 }
 
